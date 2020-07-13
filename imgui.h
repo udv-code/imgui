@@ -67,7 +67,11 @@ Index of this file:
 // IMGUI_API is used for core imgui functions, IMGUI_IMPL_API is used for the default bindings files (imgui_impl_xxx.h)
 // Using dear imgui via a shared library is not recommended, because we don't guarantee backward nor forward ABI compatibility (also function call overhead, as dear imgui is a call-heavy API)
 #ifndef IMGUI_API
-#define IMGUI_API
+#ifdef imgui_EXPORTS
+#define IMGUI_API __declspec(dllexport)
+#else
+#define IMGUI_API __declspec(dllimport)
+#endif
 #endif
 #ifndef IMGUI_IMPL_API
 #define IMGUI_IMPL_API              IMGUI_API
