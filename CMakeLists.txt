@@ -4,7 +4,6 @@ cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 set(CMAKE_DEBUG_POSTFIX "-debug")
 
 # CMake options
-option(BUILD_SHARED_LIBS "Build shared." OFF)
 option(IMGUI_BUILD_EXAMPLES "Build examples" OFF)
 
 # Project config
@@ -30,7 +29,7 @@ project(
 # Target
 add_library(
 		${IMGUI_TARGET_NAME}
-
+		STATIC
 		imgui.h
 		imgui.cpp
 
